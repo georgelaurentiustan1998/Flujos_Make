@@ -1,0 +1,967 @@
+{
+    "name": "🔒Notificacion_envio AIRTABLE",
+    "flow": [
+        {
+            "id": 8,
+            "module": "gateway:CustomWebHook",
+            "version": 1,
+            "parameters": {
+                "hook": 3608962,
+                "maxResults": 1000
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 0
+                },
+                "restore": {
+                    "parameters": {
+                        "hook": {
+                            "data": {
+                                "editable": "true"
+                            },
+                            "label": "NOTIFICACION ENVIO"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "hook",
+                        "type": "hook:gateway-webhook",
+                        "label": "Webhook",
+                        "required": true
+                    },
+                    {
+                        "name": "maxResults",
+                        "type": "number",
+                        "label": "Maximum number of results"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "Cod_envio",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Remitente_Nombre",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Remitente_Teléfono",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Remitente_Email",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Remitente_Dirección",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Remitente_CP",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Destinatario_Nombre",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Destinatario_Dirección",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Destinatario_CP",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Destinatario_Teléfono",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Destinatario_Email",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Nº_Cajas",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Tamaño",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Medidas",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Peso",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Contenido",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Estado",
+                        "type": "text"
+                    }
+                ],
+                "advanced": true
+            }
+        },
+        {
+            "id": 5,
+            "module": "airtable:ActionCreateRecord",
+            "version": 3,
+            "parameters": {
+                "__IMTCONN__": 13070671
+            },
+            "mapper": {
+                "base": "app9O9wpgj8IlCtls",
+                "table": "tblkvM6A5BEODRMo1",
+                "record": {
+                    "fld564mfhsvmEZqnD": "{{8.Contenido}}",
+                    "fld6EjIJPwZ2oN3Jc": "{{8.`Tamaño`}}",
+                    "fld6OKvCZPnYfJ9lw": "{{8.Cod_envio}}",
+                    "fld9M2TINwPNApkNg": "{{8.Medidas}}",
+                    "fldd3YSdwDWwJYIH9": "{{8.`Remitente_Dirección`}}",
+                    "fldeG1Fq1cPMo1BSz": "{{8.Remitente_Email}}",
+                    "fldeOWkVNRy1VCFEc": "{{8.`Nº_Cajas`}}",
+                    "fldi1dJNGrUKE8e06": "{{8.`Destinatario_Dirección`}}",
+                    "fldiecfKWjngYeVZX": "{{8.`Remitente_Teléfono`}}",
+                    "fldjFLfRmBW4Fau23": "{{8.`Destinatario_Teléfono`}}",
+                    "fldn0zvsHe0WfA0Zp": "{{8.Peso}}",
+                    "fldw8mTGBtjTunsd7": "{{8.Destinatario_Nombre}}",
+                    "fldxin4tEtO8xGvFc": "{{8.Remitente_Nombre}}",
+                    "fldyPqPuGwCFEns0G": "{{8.Destinatario_Email}}",
+                    "fldzDeTIqbGxl63Gv": "NO ENVIADA"
+                },
+                "typecast": false,
+                "useColumnId": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "base": {
+                            "label": "EnviosGPT"
+                        },
+                        "table": {
+                            "label": "EnviosGPT",
+                            "nested": [
+                                {
+                                    "name": "record",
+                                    "spec": [
+                                        {
+                                            "name": "fld6OKvCZPnYfJ9lw",
+                                            "type": "text",
+                                            "label": "Cod_envio",
+                                            "multiline": true
+                                        },
+                                        {
+                                            "name": "fldxin4tEtO8xGvFc",
+                                            "type": "text",
+                                            "label": "Remitente_Nombre",
+                                            "multiline": true
+                                        },
+                                        {
+                                            "name": "fldiecfKWjngYeVZX",
+                                            "type": "text",
+                                            "label": "Remitente_Teléfono",
+                                            "multiline": true
+                                        },
+                                        {
+                                            "name": "fldeG1Fq1cPMo1BSz",
+                                            "type": "text",
+                                            "label": "Remitente_Email",
+                                            "multiline": true
+                                        },
+                                        {
+                                            "name": "fldd3YSdwDWwJYIH9",
+                                            "type": "text",
+                                            "label": "Remitente_Dirección",
+                                            "multiline": true
+                                        },
+                                        {
+                                            "name": "fldw8mTGBtjTunsd7",
+                                            "type": "text",
+                                            "label": "Destinatario_Nombre",
+                                            "multiline": true
+                                        },
+                                        {
+                                            "name": "fldjFLfRmBW4Fau23",
+                                            "type": "text",
+                                            "label": "Destinatario_Teléfono",
+                                            "multiline": true
+                                        },
+                                        {
+                                            "name": "fldyPqPuGwCFEns0G",
+                                            "type": "text",
+                                            "label": "Destinatario_Email",
+                                            "multiline": true
+                                        },
+                                        {
+                                            "name": "fldi1dJNGrUKE8e06",
+                                            "type": "text",
+                                            "label": "Destinatario_Dirección",
+                                            "multiline": true
+                                        },
+                                        {
+                                            "name": "fldeOWkVNRy1VCFEc",
+                                            "type": "text",
+                                            "label": "Nº_Cajas",
+                                            "multiline": true
+                                        },
+                                        {
+                                            "name": "fld6EjIJPwZ2oN3Jc",
+                                            "type": "text",
+                                            "label": "Tamaño",
+                                            "multiline": true
+                                        },
+                                        {
+                                            "name": "fld9M2TINwPNApkNg",
+                                            "type": "text",
+                                            "label": "Medidas",
+                                            "multiline": true
+                                        },
+                                        {
+                                            "name": "fldn0zvsHe0WfA0Zp",
+                                            "type": "text",
+                                            "label": "Peso",
+                                            "multiline": true
+                                        },
+                                        {
+                                            "name": "fld564mfhsvmEZqnD",
+                                            "type": "text",
+                                            "label": "Contenido",
+                                            "multiline": true
+                                        },
+                                        {
+                                            "name": "fldBzjwN0wNua9F0g",
+                                            "type": "text",
+                                            "label": "Pagado",
+                                            "multiline": true
+                                        },
+                                        {
+                                            "name": "fldzDeTIqbGxl63Gv",
+                                            "type": "text",
+                                            "label": "Notificacion",
+                                            "multiline": true
+                                        }
+                                    ],
+                                    "type": "collection",
+                                    "label": "Record"
+                                }
+                            ]
+                        },
+                        "typecast": {
+                            "mode": "chose"
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable2"
+                            },
+                            "label": "airtable"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:airtable3,airtable2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "base",
+                        "type": "select",
+                        "label": "Base",
+                        "required": true
+                    },
+                    {
+                        "name": "typecast",
+                        "type": "boolean",
+                        "label": "Smart links",
+                        "required": true
+                    },
+                    {
+                        "name": "useColumnId",
+                        "type": "boolean",
+                        "label": "Use Column ID",
+                        "required": true
+                    },
+                    {
+                        "name": "table",
+                        "type": "select",
+                        "label": "Table",
+                        "required": true
+                    },
+                    {
+                        "name": "record",
+                        "spec": [
+                            {
+                                "name": "fld6OKvCZPnYfJ9lw",
+                                "type": "text",
+                                "label": "Cod_envio"
+                            },
+                            {
+                                "name": "fldxin4tEtO8xGvFc",
+                                "type": "text",
+                                "label": "Remitente_Nombre"
+                            },
+                            {
+                                "name": "fldiecfKWjngYeVZX",
+                                "type": "text",
+                                "label": "Remitente_Teléfono"
+                            },
+                            {
+                                "name": "fldeG1Fq1cPMo1BSz",
+                                "type": "text",
+                                "label": "Remitente_Email"
+                            },
+                            {
+                                "name": "fldd3YSdwDWwJYIH9",
+                                "type": "text",
+                                "label": "Remitente_Dirección"
+                            },
+                            {
+                                "name": "fldw8mTGBtjTunsd7",
+                                "type": "text",
+                                "label": "Destinatario_Nombre"
+                            },
+                            {
+                                "name": "fldjFLfRmBW4Fau23",
+                                "type": "text",
+                                "label": "Destinatario_Teléfono"
+                            },
+                            {
+                                "name": "fldyPqPuGwCFEns0G",
+                                "type": "text",
+                                "label": "Destinatario_Email"
+                            },
+                            {
+                                "name": "fldi1dJNGrUKE8e06",
+                                "type": "text",
+                                "label": "Destinatario_Dirección"
+                            },
+                            {
+                                "name": "fldeOWkVNRy1VCFEc",
+                                "type": "text",
+                                "label": "Nº_Cajas"
+                            },
+                            {
+                                "name": "fld6EjIJPwZ2oN3Jc",
+                                "type": "text",
+                                "label": "Tamaño"
+                            },
+                            {
+                                "name": "fld9M2TINwPNApkNg",
+                                "type": "text",
+                                "label": "Medidas"
+                            },
+                            {
+                                "name": "fldn0zvsHe0WfA0Zp",
+                                "type": "text",
+                                "label": "Peso"
+                            },
+                            {
+                                "name": "fld564mfhsvmEZqnD",
+                                "type": "text",
+                                "label": "Contenido"
+                            },
+                            {
+                                "name": "fldBzjwN0wNua9F0g",
+                                "type": "text",
+                                "label": "Pagado"
+                            },
+                            {
+                                "name": "fldzDeTIqbGxl63Gv",
+                                "type": "text",
+                                "label": "Notificacion"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Record"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "createdTime",
+                        "type": "date",
+                        "label": "Created Time"
+                    },
+                    {
+                        "name": "Cod_envio",
+                        "type": "text",
+                        "label": "Cod_envio",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Remitente_Nombre",
+                        "type": "text",
+                        "label": "Remitente_Nombre",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Remitente_Teléfono",
+                        "type": "text",
+                        "label": "Remitente_Teléfono",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Remitente_Email",
+                        "type": "text",
+                        "label": "Remitente_Email",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Remitente_Dirección",
+                        "type": "text",
+                        "label": "Remitente_Dirección",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Destinatario_Nombre",
+                        "type": "text",
+                        "label": "Destinatario_Nombre",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Destinatario_Teléfono",
+                        "type": "text",
+                        "label": "Destinatario_Teléfono",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Destinatario_Email",
+                        "type": "text",
+                        "label": "Destinatario_Email",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Destinatario_Dirección",
+                        "type": "text",
+                        "label": "Destinatario_Dirección",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Nº_Cajas",
+                        "type": "text",
+                        "label": "Nº_Cajas",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Tamaño",
+                        "type": "text",
+                        "label": "Tamaño",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Medidas",
+                        "type": "text",
+                        "label": "Medidas",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Peso",
+                        "type": "text",
+                        "label": "Peso",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Contenido",
+                        "type": "text",
+                        "label": "Contenido",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Pagado",
+                        "type": "number",
+                        "label": "Pagado"
+                    },
+                    {
+                        "name": "Notificacion",
+                        "type": "text",
+                        "label": "Notificacion",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Link de pago",
+                        "type": "text",
+                        "label": "Link de pago"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 3,
+            "module": "google-email:ActionSendEmail",
+            "version": 2,
+            "parameters": {
+                "account": 11809605
+            },
+            "mapper": {
+                "cc": [],
+                "to": [
+                    "josemorales@adresles.com"
+                ],
+                "bcc": [],
+                "from": "",
+                "html": "Hola, te informo de que tienes un nuevo pedido. <br> Por favor revisa los detalles.",
+                "subject": "Nuevo Pedido",
+                "attachments": []
+            },
+            "metadata": {
+                "designer": {
+                    "x": 600,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "cc": {
+                            "mode": "chose"
+                        },
+                        "to": {
+                            "mode": "chose",
+                            "items": [
+                                null
+                            ]
+                        },
+                        "bcc": {
+                            "mode": "chose"
+                        },
+                        "attachments": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "account": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "google-restricted"
+                            },
+                            "label": "JoseAdresles (josemorales@adresles.com)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "account",
+                        "type": "account:google-restricted",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "from",
+                        "type": "text",
+                        "label": "From"
+                    },
+                    {
+                        "name": "to",
+                        "spec": {
+                            "name": "value",
+                            "type": "email",
+                            "label": "Email address",
+                            "required": true
+                        },
+                        "type": "array",
+                        "label": "To",
+                        "required": true
+                    },
+                    {
+                        "name": "subject",
+                        "type": "text",
+                        "label": "Subject"
+                    },
+                    {
+                        "name": "html",
+                        "type": "text",
+                        "label": "Content"
+                    },
+                    {
+                        "name": "attachments",
+                        "spec": [
+                            {
+                                "name": "fileName",
+                                "type": "filename",
+                                "label": "File name",
+                                "required": true,
+                                "semantic": "file:name"
+                            },
+                            {
+                                "name": "data",
+                                "type": "buffer",
+                                "label": "Data",
+                                "required": true,
+                                "semantic": "file:data"
+                            },
+                            {
+                                "name": "cid",
+                                "type": "text",
+                                "label": "Content-ID"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Attachments"
+                    },
+                    {
+                        "name": "cc",
+                        "spec": {
+                            "name": "value",
+                            "type": "email",
+                            "label": "Email address"
+                        },
+                        "type": "array",
+                        "label": "Copy recipient"
+                    },
+                    {
+                        "name": "bcc",
+                        "spec": {
+                            "name": "value",
+                            "type": "email",
+                            "label": "Email address"
+                        },
+                        "type": "array",
+                        "label": "Blind copy recipient"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 6,
+            "module": "airtable:ActionUpdateRecords",
+            "version": 3,
+            "parameters": {
+                "__IMTCONN__": 13070671
+            },
+            "mapper": {
+                "id": "{{5.id}}",
+                "base": "app9O9wpgj8IlCtls",
+                "table": "tblkvM6A5BEODRMo1",
+                "record": {
+                    "fldzDeTIqbGxl63Gv": "ENVIADA"
+                },
+                "typecast": false,
+                "useColumnId": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 900,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "base": {
+                            "label": "EnviosGPT"
+                        },
+                        "table": {
+                            "label": "EnviosGPT"
+                        },
+                        "typecast": {
+                            "mode": "chose"
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable2"
+                            },
+                            "label": "airtable"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:airtable3,airtable2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "base",
+                        "type": "select",
+                        "label": "Base",
+                        "required": true
+                    },
+                    {
+                        "name": "typecast",
+                        "type": "boolean",
+                        "label": "Smart links",
+                        "required": true
+                    },
+                    {
+                        "name": "useColumnId",
+                        "type": "boolean",
+                        "label": "Use Column ID",
+                        "required": true
+                    },
+                    {
+                        "name": "table",
+                        "type": "select",
+                        "label": "Table",
+                        "required": true
+                    },
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "Record ID",
+                        "required": true
+                    },
+                    {
+                        "name": "record",
+                        "spec": [
+                            {
+                                "name": "fld6OKvCZPnYfJ9lw",
+                                "type": "text",
+                                "label": "Cod_envio"
+                            },
+                            {
+                                "name": "fldxin4tEtO8xGvFc",
+                                "type": "text",
+                                "label": "Remitente_Nombre"
+                            },
+                            {
+                                "name": "fldiecfKWjngYeVZX",
+                                "type": "text",
+                                "label": "Remitente_Teléfono"
+                            },
+                            {
+                                "name": "fldeG1Fq1cPMo1BSz",
+                                "type": "text",
+                                "label": "Remitente_Email"
+                            },
+                            {
+                                "name": "fldd3YSdwDWwJYIH9",
+                                "type": "text",
+                                "label": "Remitente_Dirección"
+                            },
+                            {
+                                "name": "fldw8mTGBtjTunsd7",
+                                "type": "text",
+                                "label": "Destinatario_Nombre"
+                            },
+                            {
+                                "name": "fldjFLfRmBW4Fau23",
+                                "type": "text",
+                                "label": "Destinatario_Teléfono"
+                            },
+                            {
+                                "name": "fldyPqPuGwCFEns0G",
+                                "type": "text",
+                                "label": "Destinatario_Email"
+                            },
+                            {
+                                "name": "fldi1dJNGrUKE8e06",
+                                "type": "text",
+                                "label": "Destinatario_Dirección"
+                            },
+                            {
+                                "name": "fldeOWkVNRy1VCFEc",
+                                "type": "text",
+                                "label": "Nº_Cajas"
+                            },
+                            {
+                                "name": "fld6EjIJPwZ2oN3Jc",
+                                "type": "text",
+                                "label": "Tamaño"
+                            },
+                            {
+                                "name": "fld9M2TINwPNApkNg",
+                                "type": "text",
+                                "label": "Medidas"
+                            },
+                            {
+                                "name": "fldn0zvsHe0WfA0Zp",
+                                "type": "text",
+                                "label": "Peso"
+                            },
+                            {
+                                "name": "fld564mfhsvmEZqnD",
+                                "type": "text",
+                                "label": "Contenido"
+                            },
+                            {
+                                "name": "fld47NEL8RjoSYhvr",
+                                "type": "text",
+                                "label": "Estado"
+                            },
+                            {
+                                "name": "fldBzjwN0wNua9F0g",
+                                "type": "text",
+                                "label": "Pagado"
+                            },
+                            {
+                                "name": "fldzDeTIqbGxl63Gv",
+                                "type": "text",
+                                "label": "Notificacion"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Record"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "createdTime",
+                        "type": "date",
+                        "label": "Created Time"
+                    },
+                    {
+                        "name": "Cod_envio",
+                        "type": "text",
+                        "label": "Cod_envio",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Remitente_Nombre",
+                        "type": "text",
+                        "label": "Remitente_Nombre",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Remitente_Teléfono",
+                        "type": "text",
+                        "label": "Remitente_Teléfono",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Remitente_Email",
+                        "type": "text",
+                        "label": "Remitente_Email",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Remitente_Dirección",
+                        "type": "text",
+                        "label": "Remitente_Dirección",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Destinatario_Nombre",
+                        "type": "text",
+                        "label": "Destinatario_Nombre",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Destinatario_Teléfono",
+                        "type": "text",
+                        "label": "Destinatario_Teléfono",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Destinatario_Email",
+                        "type": "text",
+                        "label": "Destinatario_Email",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Destinatario_Dirección",
+                        "type": "text",
+                        "label": "Destinatario_Dirección",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Nº_Cajas",
+                        "type": "text",
+                        "label": "Nº_Cajas",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Tamaño",
+                        "type": "text",
+                        "label": "Tamaño",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Medidas",
+                        "type": "text",
+                        "label": "Medidas",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Peso",
+                        "type": "text",
+                        "label": "Peso",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Contenido",
+                        "type": "text",
+                        "label": "Contenido",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Estado",
+                        "type": "text",
+                        "label": "Estado",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Pagado",
+                        "type": "text",
+                        "label": "Pagado",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Notificacion",
+                        "type": "text",
+                        "label": "Notificacion",
+                        "multiline": true
+                    }
+                ]
+            }
+        }
+    ],
+    "metadata": {
+        "instant": true,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "eu2.make.com",
+        "notes": []
+    }
+}
