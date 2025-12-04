@@ -85,7 +85,7 @@
                                     },
                                     {
                                         "key": "Authorization",
-                                        "value": "Bearer sk_test_51SMtYqCwFRF86AGsxERq8LMgw8B21G8fqf9rfcTV8gEWFB5NPoit5TwFGz4N8Gp3Y8LHbPSyqHgOmLg5AehjMgOm00UXTCEA77"
+                                        "value": "Bearer "
                                     }
                                 ]
                             },
@@ -1020,7 +1020,7 @@
                                     },
                                     {
                                         "key": "Authorization",
-                                        "value": "Bearer sk_test_51SMtYqCwFRF86AGsxERq8LMgw8B21G8fqf9rfcTV8gEWFB5NPoit5TwFGz4N8Gp3Y8LHbPSyqHgOmLg5AehjMgOm00UXTCEA77"
+                                        "value": "Bearer "
                                     }
                                 ]
                             },
